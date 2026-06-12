@@ -26,11 +26,16 @@ class Library:
     # ==========================================
     # NEW FEATURE TASK: Implement borrow_book
     # ==========================================
-    # def borrow_book(self, title):
-    #     Find the book by title.
-    #     If it's available, set is_borrowed to True and print a success message.
-    #     If it's already borrowed, print that it's unavailable.
-    #     If not found, print an error.
+    def borrow_book(self, title):
+         for book in self.books:
+             if book.title == title:
+                 if not book.is_borrowed:
+                     book.is_borrowed = True
+                     print(f"Success: '{book.title}' has been borrowed.")
+                 else:
+                     print(f"Error: '{book.title}' is already borrowed.")
+                 return
+         print(f"Error: '{title}' not found in the library.")
     # ==========================================
 
 if __name__ == "__main__":
